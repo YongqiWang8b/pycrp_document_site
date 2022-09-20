@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>pyCRP: python Continuous Readout Processing documentation &#8212; pyCRP 0.1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="./_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="./_static/classic.css" />
     
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
+    <script src="./_static/jquery.js"></script>
+    <script src="./_static/underscore.js"></script>
+    <script src="./_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="./_static/doctools.js"></script>
     
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="index" title="Index" href="./genindex.html" />
+    <link rel="search" title="Search" href="./search.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -129,10 +129,10 @@ It also supports batch processing for LSF batch system (slurm job submission is 
 <section id="frequently-encountered-errors">
 <h2>Frequently Encountered Errors<a class="headerlink" href="#frequently-encountered-errors" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>local variable ‘traces’ referenced before assignment</p></li>
+<li><p>local variable ‘traces�?referenced before assignment</p></li>
 </ul>
 <p>While running run_processing.py, you get the error:</p>
-<p>local variable ‘traces’ referenced before assignment</p>
+<p>local variable ‘traces�?referenced before assignment</p>
 <p>this means the series you told it to process is empty; it does not actually have any data in it.</p>
 <p>This could be because it does not exist. Check:</p>
 <p>Did you spell the series name correctly?</p>
@@ -140,20 +140,20 @@ It also supports batch processing for LSF batch system (slurm job submission is 
 <ul class="simple">
 <li><p>_optimum_filter.py: np.dot(Tf.Conjugate/J,Tf) incompatible shapes</p></li>
 </ul>
-<p>While make RQs, you encounter an “incompatible shapes” error in this line of _optimum_filter.py:
+<p>While make RQs, you encounter an “incompatible shapes�?error in this line of _optimum_filter.py:
 np.dot(Tf.Conjugate/J,Tf)</p>
 <p>The error likely isn’t in regards to the np.dot, but rather in regards to Tf.Conjugate/J.</p>
 <p>J has length equal to TRACE_LENGTH in your config.</p>
 <p>Meanwhile Tf is your template, it has length depending on what you had set your template as.</p>
 <p>These two lengths have to be equal for division to make sense.</p>
-<p>If you are using the “default” template option in your config, verify that that has the same length as your TRACE_LENGTH</p>
-<p>Alternatively just use an “analytic:20e-6,80e-6” template for Animal data.</p>
+<p>If you are using the “default�?template option in your config, verify that that has the same length as your TRACE_LENGTH</p>
+<p>Alternatively just use an “analytic:20e-6,80e-6�?template for Animal data.</p>
 <ul class="simple">
-<li><p>“PSD autocut acceptance is always 0!” error</p></li>
+<li><p>“PSD autocut acceptance is always 0!�?error</p></li>
 </ul>
-<p>While calculating PSDs, you recieve the massage “Autocuts are too harsh, rerunning random triggering” for a few times,
-then encounter a “PSD autocut acceptance is always 0!” error :</p>
-<p>“Autocut” function decided there are pulses in most(&gt;99%) of the traces selected, and rejected all of them.</p>
+<p>While calculating PSDs, you recieve the massage “Autocuts are too harsh, rerunning random triggering�?for a few times,
+then encounter a “PSD autocut acceptance is always 0!�?error :</p>
+<p>“Autocut�?function decided there are pulses in most(&gt;99%) of the traces selected, and rejected all of them.</p>
 <p>You can include more traces before autocut: increase config.PSD_MAX_TRACES and config.PSD_FILES
 Or use a shorter trace length.</p>
 <p>If you want to include the pulses in your PSDs (<em>usually you don’t</em>), Set traces_cut=traces to skip the auto cut.</p>
@@ -188,24 +188,24 @@ Or use a shorter trace length.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n</strong> (<em>array-like</em>) – Y axis of the hist</p></li>
-<li><p><strong>ibins</strong> (<em>array-like</em>) – X axis of the hist</p></li>
-<li><p><strong>fitrange</strong> (<em>int list</em>) – List with two elements: start and end index of fit.</p></li>
-<li><p><strong>poissonerror</strong> (<em>boolean</em>) – Y error follows the poisson or not. Set y error to 1 if False</p></li>
-<li><p><strong>interp_points</strong> (<em>int</em>) – Number of interpolation points between maximum and minimum x</p></li>
-<li><p><strong>p0</strong> (<em>array</em><em>, </em><em>optional</em>) – Initial guess for the parameters</p></li>
-<li><p><strong>make_plot</strong> (<em>boolean</em>) – Make plot if True</p></li>
-<li><p><strong>sidebands</strong> (<em>boolean</em>) – Must be True now. The function is not defined for False</p></li>
+<li><p><strong>n</strong> (<em>array-like</em>) �?Y axis of the hist</p></li>
+<li><p><strong>ibins</strong> (<em>array-like</em>) �?X axis of the hist</p></li>
+<li><p><strong>fitrange</strong> (<em>int list</em>) �?List with two elements: start and end index of fit.</p></li>
+<li><p><strong>poissonerror</strong> (<em>boolean</em>) �?Y error follows the poisson or not. Set y error to 1 if False</p></li>
+<li><p><strong>interp_points</strong> (<em>int</em>) �?Number of interpolation points between maximum and minimum x</p></li>
+<li><p><strong>p0</strong> (<em>array</em><em>, </em><em>optional</em>) �?Initial guess for the parameters</p></li>
+<li><p><strong>make_plot</strong> (<em>boolean</em>) �?Make plot if True</p></li>
+<li><p><strong>sidebands</strong> (<em>boolean</em>) �?Must be True now. The function is not defined for False</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><strong>popt</strong> (<em>array</em>) – Optimal values for the parameters so that the sum of the squared residuals of f(xdata, <a href="#id2"><span class="problematic" id="id3">*</span></a>popt) - ydata is minimized.</p></li>
-<li><p><strong>pcov</strong> (<em>2-D array</em>) – The estimated covariance of popt. The diagonals provide the variance of the parameter estimate. To compute one standard deviation errors on the parameters use perr = np.sqrt(np.diag(pcov)).</p></li>
-<li><p><strong>plot_x</strong> (<em>array</em>) – x axis of fitting</p></li>
-<li><p><strong>plot_y</strong> (<em>array</em>) – y axis of fitting</p></li>
-<li><p><strong>bincenters</strong> (<em>float</em>) – center of the bins which is the pfeak energy</p></li>
-<li><p><strong>n</strong> (<em>array-like</em>) – Unprocessed y axis of the hist, same as the input array</p></li>
+<li><p><strong>popt</strong> (<em>array</em>) �?Optimal values for the parameters so that the sum of the squared residuals of f(xdata, <a href="#id2"><span class="problematic" id="id3">*</span></a>popt) - ydata is minimized.</p></li>
+<li><p><strong>pcov</strong> (<em>2-D array</em>) �?The estimated covariance of popt. The diagonals provide the variance of the parameter estimate. To compute one standard deviation errors on the parameters use perr = np.sqrt(np.diag(pcov)).</p></li>
+<li><p><strong>plot_x</strong> (<em>array</em>) �?x axis of fitting</p></li>
+<li><p><strong>plot_y</strong> (<em>array</em>) �?y axis of fitting</p></li>
+<li><p><strong>bincenters</strong> (<em>float</em>) �?center of the bins which is the pfeak energy</p></li>
+<li><p><strong>n</strong> (<em>array-like</em>) �?Unprocessed y axis of the hist, same as the input array</p></li>
 </ul>
 </p>
 </dd>
@@ -220,30 +220,30 @@ Or use a shorter trace length.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>xdata</strong> (<em>1-d array</em><em> or </em><em>list</em>) – input data array to fit</p></li>
-<li><p><strong>ydata</strong> (<em>1-d array</em><em> or </em><em>list</em>) – input data array to fit</p></li>
-<li><p><strong>fit_range</strong> (<em>tuple</em>) – data range for the fit (x_lower, x_upper)</p></li>
-<li><p><strong>functions</strong> (<em>tuple of python functions</em>) – Examples:
+<li><p><strong>xdata</strong> (<em>1-d array</em><em> or </em><em>list</em>) �?input data array to fit</p></li>
+<li><p><strong>ydata</strong> (<em>1-d array</em><em> or </em><em>list</em>) �?input data array to fit</p></li>
+<li><p><strong>fit_range</strong> (<em>tuple</em>) �?data range for the fit (x_lower, x_upper)</p></li>
+<li><p><strong>functions</strong> (<em>tuple of python functions</em>) �?Examples:
 Utils.Gauss, Utils.Uniform, Utils.Poly, Utils.Exp</p></li>
-<li><p><strong>sigma</strong> (<em>None</em><em>, </em><em>boolean</em><em>, </em><em>ndarray</em>) – Uncertainy on each point.
+<li><p><strong>sigma</strong> (<em>None</em><em>, </em><em>boolean</em><em>, </em><em>ndarray</em>) �?Uncertainy on each point.
 None (default): use equal weight to each bin
 Ture: Poisson error sqrt(n)
 ndarray: user-defined error</p></li>
-<li><p><strong>return_format</strong> (<em>int</em>) – format of return value
+<li><p><strong>return_format</strong> (<em>int</em>) �?format of return value
 0 (default):x, y, param_values, param_errors
 1: full fit result</p></li>
-<li><p><strong>name</strong> (<em>None</em><em>, </em><em>str</em>) – Name of fit function</p></li>
-<li><p><strong>initial_values</strong> (<em>tuple of tuples of floats</em>) – inital values of parameters
+<li><p><strong>name</strong> (<em>None</em><em>, </em><em>str</em>) �?Name of fit function</p></li>
+<li><p><strong>initial_values</strong> (<em>tuple of tuples of floats</em>) �?inital values of parameters
 Example:
-functions=(Utils.Gauss, Utils.Exp, Utils.Poly), initial_values=((A,mean, sigma), (exp_A, exp_k), (p0, p1, p2, …))</p></li>
-<li><p><strong>bounds</strong> (<em>tuple of tuples of tuples of floats</em>) – min and max allowed parameter values
+functions=(Utils.Gauss, Utils.Exp, Utils.Poly), initial_values=((A,mean, sigma), (exp_A, exp_k), (p0, p1, p2, �?)</p></li>
+<li><p><strong>bounds</strong> (<em>tuple of tuples of tuples of floats</em>) �?min and max allowed parameter values
 Example:
 functions=(Utils.Gauss, Utils.Exp, Utils.Poly), bounds=(((min_a, max_a),(min_mean, max_mean),(min_sig,max_sig)), ((min_a, max_a),(min_k, max_k),))</p></li>
-<li><p><strong>set_constant</strong> (<em>tuple of tuples of bools</em><em>   or   </em><em>None</em>) – whether to fix a certain parameter at a constant value.
+<li><p><strong>set_constant</strong> (<em>tuple of tuples of bools</em><em>   or   </em><em>None</em>) �?whether to fix a certain parameter at a constant value.
 If equals to None, then none of the parameters is fixed
 Example:
 functions=(Utils.Gauss, Utils.Exp), set_constant=((fix_A,fix_mean, fix_sigma), (fix_A, fix_k))</p></li>
-<li><p><strong>verbose</strong> (<em>int</em>) – <dl class="simple">
+<li><p><strong>verbose</strong> (<em>int</em>) �?<dl class="simple">
 <dt>verbosity level (might not work. It’s tricky)</dt><dd><p>0 - print fit results (default)
 1 - print fit results and correlation
 2 - print info (fit function,parameters settings)</p>
@@ -256,13 +256,13 @@ functions=(Utils.Gauss, Utils.Exp), set_constant=((fix_A,fix_mean, fix_sigma), (
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>If return_format==0</em></p></li>
 <li><p><em>x, y, param_values, param_errors</em></p></li>
-<li><p><strong>x</strong> (<em>array</em>) – bin centers</p></li>
-<li><p><strong>y</strong> (<em>array</em>) – fit function values</p></li>
-<li><p><strong>param_values</strong> (<em>tuple of tuples</em>) – values of fitted parameters. Has the same shape as ‘initial_values’ arg</p></li>
-<li><p><strong>param_errors</strong> (<em>tuple of tuples</em>) – errors of fitted parameters. Has the same shape as ‘initial_values’ arg</p></li>
+<li><p><strong>x</strong> (<em>array</em>) �?bin centers</p></li>
+<li><p><strong>y</strong> (<em>array</em>) �?fit function values</p></li>
+<li><p><strong>param_values</strong> (<em>tuple of tuples</em>) �?values of fitted parameters. Has the same shape as ‘initial_values�?arg</p></li>
+<li><p><strong>param_errors</strong> (<em>tuple of tuples</em>) �?errors of fitted parameters. Has the same shape as ‘initial_values�?arg</p></li>
 <li><p><em>If return_format==1</em></p></li>
 <li><p><em>retult,func, param_values, param_errors</em></p></li>
-<li><p><strong>result</strong> (<em>minimizer result object</em>) – <a class="reference external" href="https://lmfit.github.io/lmfit-py/fitting.html#lmfit.minimizer.MinimizerResult">https://lmfit.github.io/lmfit-py/fitting.html#lmfit.minimizer.MinimizerResult</a></p></li>
+<li><p><strong>result</strong> (<em>minimizer result object</em>) �?<a class="reference external" href="https://lmfit.github.io/lmfit-py/fitting.html#lmfit.minimizer.MinimizerResult">https://lmfit.github.io/lmfit-py/fitting.html#lmfit.minimizer.MinimizerResult</a></p></li>
 <li><p><strong>func</strong> (<em>fit function</em>)</p></li>
 </ul>
 </p>
@@ -292,14 +292,14 @@ See fitb for details</p>
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">getPrintable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycrp._fit.Fit.getPrintable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Organize the fit result into printable format
 Inputs
-——-
+—�?
 result: lmfit model.result object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
-<li><p><strong>fit_result_print</strong> (<em>str</em>) – A string formated with parameter name, value and uncertainty</p></li>
+<li><p><strong>fit_result_print</strong> (<em>str</em>) �?A string formated with parameter name, value and uncertainty</p></li>
 <li><p><em>Example of printing this to a plot</em></p></li>
-<li><p><strong>plt.text(1.05,1,fit_result_print,transform=gca().transAxes,fontdict={‘family’</strong> (<em>‘monospace’})</em>)</p></li>
+<li><p><strong>plt.text(1.05,1,fit_result_print,transform=gca().transAxes,fontdict={‘family�?/strong> (<em>‘monospace’})</em>)</p></li>
 </ul>
 </p>
 </dd>
@@ -319,7 +319,7 @@ result: lmfit model.result object</p>
 <p>Loading data</p>
 <p>If you want to add new datatype to pyCRP, make a io_{datatype}.py file and add {datatype} to the following list in _io.py:</p>
 <p>Find <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">data_type</span> <span class="pre">in</span> <span class="pre">[&quot;NEXUS&quot;,</span> <span class="pre">&quot;Animal&quot;,</span> <span class="pre">&quot;UMass&quot;,</span> <span class="pre">&quot;MIT&quot;,</span> <span class="pre">&quot;Argonne&quot;]:</span></code></p>
-<p>and change it to``if data_type in [“NEXUS”, “Animal”, “UMass”, “MIT”, “Argonne”, “{datatype}”]:``</p>
+<p>and change it to``if data_type in [“NEXUS�? “Animal�? “UMass�? “MIT�? “Argonne�? “{datatype}”]:``</p>
 <p>See io_template for how to add a new io type</p>
 <span class="target" id="module-pycrp._io"></span><dl class="py class">
 <dt class="sig sig-object py" id="pycrp._io.IO">
@@ -333,8 +333,8 @@ result: lmfit model.result object</p>
 <li><p>full filename</p></li>
 <li><p>series number, need to specify data_dir and data_type</p></li>
 <li><p>a string with wildcard</p></li>
-<li><p>a string with f-string format and with wildcard with “series” as a variable, and provide a list of series <cite>Series</cite>
-Note that it should be given as a normal string, without the initial f’’. for example, “/{series}/{series}_F*.mid.gz”</p></li>
+<li><p>a string with f-string format and with wildcard with “series�?as a variable, and provide a list of series <cite>Series</cite>
+Note that it should be given as a normal string, without the initial f’�? for example, �?{series}/{series}_F*.mid.gz�?/p></li>
 </ul>
 </dd>
 </dl>
@@ -375,7 +375,7 @@ Note that it should be given as a normal string, without the initial f’’. fo
 <dl class="py attribute">
 <dt class="sig sig-object py" id="pycrp._io.IO.data_type">
 <span class="sig-name descname"><span class="pre">data_type</span></span><a class="headerlink" href="#pycrp._io.IO.data_type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Choose one from (“NEXUS”,”Animal”, “UMass”, “MIT”, “Argonne”,”RQ”)</p>
+<dd><p>Choose one from (“NEXUS�?”Animal�? “UMass�? “MIT�? “Argonne�?”RQ�?</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>str</p>
@@ -476,25 +476,25 @@ If io_file is not present, return -1</p>
 <p><strong>4. Threshold trigger with shaping</strong></p>
 <p>This is the trigger we usually use for pulse triggering.</p>
 <p>Shaping is also a threshold trigger, but some filter will be applied on the raw traces before triggering to reject noise.</p>
-<p>The most common filter we use is the Gaussian filter with given order(usually 1 which means derivative), sigma, truncation(in unit of sigma). For details about Gaussian filter see <a class="reference external" href="https://www.cs.cornell.edu/courses/cs6670/2011sp/lectures/lec02_filter.pdf">slide 40 of this presentation</a> or just Google “gaussian derivative filter”.</p>
+<p>The most common filter we use is the Gaussian filter with given order(usually 1 which means derivative), sigma, truncation(in unit of sigma). For details about Gaussian filter see <a class="reference external" href="https://www.cs.cornell.edu/courses/cs6670/2011sp/lectures/lec02_filter.pdf">slide 40 of this presentation</a> or just Google “gaussian derivative filter�?</p>
 <span class="target" id="module-pycrp._trigger"></span><dl class="py class">
 <dt class="sig sig-object py" id="pycrp._trigger.Trigger">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pycrp._trigger.</span></span><span class="sig-name descname"><span class="pre">Trigger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_config</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">io_user</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ADC2uA</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Fs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">625000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_trig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_trig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trig_pileup_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trigger_holdoff</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">make_LED_dummy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">LED_frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">real_trace_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">156250</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycrp._trigger.Trigger" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>dict</em>) – The output of uio.load(). Raw data loaded by io</p></li>
-<li><p><strong>channel_config</strong> (<em>dict</em>) – A dictionary with channel configuration.</p></li>
-<li><p><strong>transform</strong> (<em>None</em>) – Not used for now</p></li>
-<li><p><strong>io_user</strong> (<em>uio.io_file</em>) – The io file to read metadata</p></li>
-<li><p><strong>ADC2uA</strong> (<em>float</em>) – ADC to uA convert factor. Use config.ADC2uA if needed.</p></li>
-<li><p><strong>pre_trig/post_trig</strong> (<em>int</em>) – pre/post trigger trace length. Use config.pre_trig/post_trig if needed.</p></li>
-<li><p><strong>trig_pileup_window</strong> (<em>int</em>) – A window for trig_pileups</p></li>
-<li><p><strong>trigger_holdoff</strong> (<em>float</em>) – Time. Reject trigger within trigger_holdoff time. Set to -1 to disable</p></li>
-<li><p><strong>verbose</strong> (<em>boolean</em>) – Print trigger configuration if True</p></li>
-<li><p><strong>make_LED_dummy</strong> (<em>booloan</em>) – If True, do interplate LED triggers base on the threshold trigger information. This function is designed for NEXUS HVeV Run 4, where the trigger for calibration data is not provided. If you want to use this feature, there are more docs in config_template.</p></li>
-<li><p><strong>LED_frequency</strong> (<em>float</em>) – The frequency of the calibration source</p></li>
-<li><p><strong>real_trace_length</strong> (<em>float</em>) – The <em>accurate</em> trace length of one DAQ trace</p></li>
+<li><p><strong>data</strong> (<em>dict</em>) �?The output of uio.load(). Raw data loaded by io</p></li>
+<li><p><strong>channel_config</strong> (<em>dict</em>) �?A dictionary with channel configuration.</p></li>
+<li><p><strong>transform</strong> (<em>None</em>) �?Not used for now</p></li>
+<li><p><strong>io_user</strong> (<em>uio.io_file</em>) �?The io file to read metadata</p></li>
+<li><p><strong>ADC2uA</strong> (<em>float</em>) �?ADC to uA convert factor. Use config.ADC2uA if needed.</p></li>
+<li><p><strong>pre_trig/post_trig</strong> (<em>int</em>) �?pre/post trigger trace length. Use config.pre_trig/post_trig if needed.</p></li>
+<li><p><strong>trig_pileup_window</strong> (<em>int</em>) �?A window for trig_pileups</p></li>
+<li><p><strong>trigger_holdoff</strong> (<em>float</em>) �?Time. Reject trigger within trigger_holdoff time. Set to -1 to disable</p></li>
+<li><p><strong>verbose</strong> (<em>boolean</em>) �?Print trigger configuration if True</p></li>
+<li><p><strong>make_LED_dummy</strong> (<em>booloan</em>) �?If True, do interplate LED triggers base on the threshold trigger information. This function is designed for NEXUS HVeV Run 4, where the trigger for calibration data is not provided. If you want to use this feature, there are more docs in config_template.</p></li>
+<li><p><strong>LED_frequency</strong> (<em>float</em>) �?The frequency of the calibration source</p></li>
+<li><p><strong>real_trace_length</strong> (<em>float</em>) �?The <em>accurate</em> trace length of one DAQ trace</p></li>
 </ul>
 </dd>
 </dl>
@@ -560,18 +560,18 @@ Frequency. Use config.Fs if needed</p>
 channel_config={</p>
 <blockquote>
 <div><dl class="simple">
-<dt>“NFF_out”:{                                   # 1. Same as raw data, renamed to NFF_out.</dt><dd><p>“sub_channels”:[“1-PBS”],},</p>
+<dt>“NFF_out�?{                                   # 1. Same as raw data, renamed to NFF_out.</dt><dd><p>“sub_channels�?[�?-PBS”],},</p>
 </dd>
-<dt>“NFF_total”:{                                 # 2. Adding two channels from raw data</dt><dd><p>“sub_channels”:[“1-PAS”,”1-PBS”],          # – weights and names of raw data channels
-“istrigger_channel”:True,                 # – trigger on this channel
-“trigger_type”:”Shaping”,                 # – trigger type, one of “Reshape”,”Random”,”Threshold”,”Shaping”
-“trigger_kernel”:”Gauss”                  # – trigger kernel
-“trigger_threshold”:”6sigma”              # – trigger threshold and other options
+<dt>“NFF_total�?{                                 # 2. Adding two channels from raw data</dt><dd><p>“sub_channels�?[�?-PAS�?�?-PBS”],          # �?weights and names of raw data channels
+“istrigger_channel�?True,                 # �?trigger on this channel
+“trigger_type�?”Shaping�?                 # �?trigger type, one of “Reshape�?”Random�?”Threshold�?”Shaping�?
+“trigger_kernel�?”Gauss�?                 # �?trigger kernel
+“trigger_threshold�?�?sigma�?             # �?trigger threshold and other options
 },</p>
 </dd>
-<dt>“Random”:{                                    # 3. Example of Random trigger</dt><dd><p>“istrigger_channel”:True,                 # – trigger on this channel
-“trigger_type”:”Random”,                  # – trigger type
-“trigger_random_rate”:2},                 # – RANDOM TRIGGER RATE: 2 per trace
+<dt>“Random�?{                                    # 3. Example of Random trigger</dt><dd><p>“istrigger_channel�?True,                 # �?trigger on this channel
+“trigger_type�?”Random�?                  # �?trigger type
+“trigger_random_rate�?2},                 # �?RANDOM TRIGGER RATE: 2 per trace
 }</p>
 </dd>
 </dl>
@@ -579,32 +579,32 @@ channel_config={</p>
 <p>Trigger related parameters:
 0) Just reshaping:</p>
 <blockquote>
-<div><p>“trigger_type”:            “Reshape”,     # – trigger type: “Reshape”,”Random”,”Threshold”,”Shaping”</p>
+<div><p>“trigger_type�?            “Reshape�?     # �?trigger type: “Reshape�?”Random�?”Threshold�?”Shaping�?/p>
 </div></blockquote>
 <ol class="arabic simple">
 <li><dl class="simple">
-<dt>Random trigger</dt><dd><p>“trigger_type”:            “Random”,      # – trigger type: “Reshape”,”Random”,”Threshold”,”Shaping”
-“trigger_random_rate”:     2,             # – RANDOM TRIGGER RATE: 2 per trace</p>
+<dt>Random trigger</dt><dd><p>“trigger_type�?            “Random�?      # �?trigger type: “Reshape�?”Random�?”Threshold�?”Shaping�?
+“trigger_random_rate�?     2,             # �?RANDOM TRIGGER RATE: 2 per trace</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Threshold trigger</dt><dd><p>“trigger_type”:            “Threshold”,   # – trigger type: “Reshape”,”Random”,”Threshold”,”Shaping”
-“trigger_threshold”:       “6sigma”,      # – trigger threshold. float or string of “x.xxsigma”
-“trigger_threshold_deact”: 0.9,           # – trigger deactivate threshold. float, 0 to 1. Default is 1.
-“trigger_align_max”:       True,          # – align trigger point to maximum after trigger cross-over. Default is true</p>
+<dt>Threshold trigger</dt><dd><p>“trigger_type�?            “Threshold�?   # �?trigger type: “Reshape�?”Random�?”Threshold�?”Shaping�?
+“trigger_threshold�?       �?sigma�?      # �?trigger threshold. float or string of “x.xxsigma�?
+“trigger_threshold_deact�? 0.9,           # �?trigger deactivate threshold. float, 0 to 1. Default is 1.
+“trigger_align_max�?       True,          # �?align trigger point to maximum after trigger cross-over. Default is true</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>Shaping trigger</dt><dd><p>“trigger_type”:            “Shaping”,     # – trigger type: “Reshape”,”Random”,”Threshold”,”Shaping”
-“trigger_kernel”:          “Gauss”,       # – trigger kernel: string, {“Gauss”,”Shaping”,”OF_dummy”,”OF”}.
-“trigger_threshold”:       “6sigma”,      # – trigger threshold. float or string of “x.xxsigma”
-“trigger_threshold_deact”:  0.9,          # – trigger deactivate threshold. float, 0 to 1. Default is 1.
-“trigger_align_max”:        True,         # – align trigger point to maximum after trigger cross-over. Default is true
-“trigger_kernel_dummy”:    [10e-6,30e-6], # – “Shaping” and “OF_dummy” kernel: Rise and fall time in us. Default is [10e-6,30e-6]
-“trigger_kernel_gauss”:    [20,3],        # – “Gauss” kernel: Sigma an truncation (number of sigmas)
-“trigger_kernel_OF”:       [170e3],       # – “OF kernel”: LPF [Hz]</p>
+<dt>Shaping trigger</dt><dd><p>“trigger_type�?            “Shaping�?     # �?trigger type: “Reshape�?”Random�?”Threshold�?”Shaping�?
+“trigger_kernel�?          “Gauss�?       # �?trigger kernel: string, {“Gauss�?”Shaping�?”OF_dummy�?”OF”}.
+“trigger_threshold�?       �?sigma�?      # �?trigger threshold. float or string of “x.xxsigma�?
+“trigger_threshold_deact�?  0.9,          # �?trigger deactivate threshold. float, 0 to 1. Default is 1.
+“trigger_align_max�?        True,         # �?align trigger point to maximum after trigger cross-over. Default is true
+“trigger_kernel_dummy�?    [10e-6,30e-6], # �?“Shaping�?and “OF_dummy�?kernel: Rise and fall time in us. Default is [10e-6,30e-6]
+“trigger_kernel_gauss�?    [20,3],        # �?“Gauss�?kernel: Sigma an truncation (number of sigmas)
+“trigger_kernel_OF�?       [170e3],       # �?“OF kernel�? LPF [Hz]</p>
 </dd>
 </dl>
 </li>
@@ -652,9 +652,9 @@ channel_config={</p>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
 <li><p><em>trigger_points,[],[]</em></p></li>
-<li><p><strong>trigger_points</strong> (<em>array</em>) – Trigger position in the raw trace</p></li>
-<li><p><strong>a_list_of_zeros</strong> (<em>array</em>) – An empty array, length equal to the trigger_points array</p></li>
-<li><p><strong>a_list_of_zeros</strong> (<em>array</em>) – An empty array, length equal to the trigger_points array</p></li>
+<li><p><strong>trigger_points</strong> (<em>array</em>) �?Trigger position in the raw trace</p></li>
+<li><p><strong>a_list_of_zeros</strong> (<em>array</em>) �?An empty array, length equal to the trigger_points array</p></li>
+<li><p><strong>a_list_of_zeros</strong> (<em>array</em>) �?An empty array, length equal to the trigger_points array</p></li>
 </ul>
 </p>
 </dd>
@@ -678,8 +678,8 @@ channel_config={</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
-<li><p><strong>traces</strong> (<em>dict</em>) – A dict with all the triggered traces on different channels.</p></li>
-<li><p><strong>trigger_result</strong> (<em>dict</em>) – A dict of reduced quantities.</p></li>
+<li><p><strong>traces</strong> (<em>dict</em>) �?A dict with all the triggered traces on different channels.</p></li>
+<li><p><strong>trigger_result</strong> (<em>dict</em>) �?A dict of reduced quantities.</p></li>
 </ul>
 </p>
 </dd>
@@ -792,7 +792,7 @@ numerically solved for find the unbiased estimators.
 </div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>(mu_eqn, std_eqn)</strong> – A tuple containing the two equations that will be solved to give the
+<dd class="field-odd"><p><strong>(mu_eqn, std_eqn)</strong> �?A tuple containing the two equations that will be solved to give the
 unbiased estimators of the mean and standard deviation of the data.</p>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -816,19 +816,19 @@ unbiased estimators of the mean and standard deviation of the data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array</em>) – Array of real-valued variables from which to remove outliers.</p></li>
-<li><p><strong>skew_target</strong> (<em>float</em>) – The limit for skewness cut. Defealt value is 0.05</p></li>
-<li><p><strong>skew_itermax</strong> (<em>int</em>) – The maximum number of traces cut by skewness.</p></li>
-<li><p><strong>std_target</strong> (<em>float</em>) – The limit for the standard deviation cut. Defealt value is 3</p></li>
-<li><p><strong>std_itermax</strong> (<em>int</em>) – The maximum number of traces cut by standard deviation.</p></li>
-<li><p><strong>std_precision</strong> (<em>float</em>) – A factor that converts deviation to standard deviation</p></li>
-<li><p><strong>return_unbiased_estimates</strong> (<em>Boolean</em>) – Return the unbiased estimates if True. For example, mu and S square</p></li>
-<li><p><strong>axis</strong> (<em>int</em>) – Not used</p></li>
-<li><p><strong>verbose</strong> (<em>Boolean</em>) – Print the debugging messages if True</p></li>
+<li><p><strong>x</strong> (<em>array</em>) �?Array of real-valued variables from which to remove outliers.</p></li>
+<li><p><strong>skew_target</strong> (<em>float</em>) �?The limit for skewness cut. Defealt value is 0.05</p></li>
+<li><p><strong>skew_itermax</strong> (<em>int</em>) �?The maximum number of traces cut by skewness.</p></li>
+<li><p><strong>std_target</strong> (<em>float</em>) �?The limit for the standard deviation cut. Defealt value is 3</p></li>
+<li><p><strong>std_itermax</strong> (<em>int</em>) �?The maximum number of traces cut by standard deviation.</p></li>
+<li><p><strong>std_precision</strong> (<em>float</em>) �?A factor that converts deviation to standard deviation</p></li>
+<li><p><strong>return_unbiased_estimates</strong> (<em>Boolean</em>) �?Return the unbiased estimates if True. For example, mu and S square</p></li>
+<li><p><strong>axis</strong> (<em>int</em>) �?Not used</p></li>
+<li><p><strong>verbose</strong> (<em>Boolean</em>) �?Print the debugging messages if True</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>inds</strong> – Boolean indices</p>
+<dd class="field-even"><p><strong>inds</strong> �?Boolean indices</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>ndarray</p>
@@ -851,7 +851,7 @@ It is roughly twice as fast as rawio</p>
 <dt>WARNING: USE AT YOUR OWN RISK!</dt><dd><p>This implementation bypasses the official IOLibrary
 It does NOT support multiple format versions.
 It does NOT handel all corner cases well.
-It supports data with only one “detector” and validated with NEXUS data</p>
+It supports data with only one “detector�?and validated with NEXUS data</p>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -909,7 +909,7 @@ It supports data with only one “detector” and validated with NEXUS data</p>
 </dd>
 </dl>
 <p>Note: eventNumbers can only be used with a single series
-(“files_series” must be a string)</p>
+(“files_series�?must be a string)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -927,7 +927,7 @@ It supports data with only one “detector” and validated with NEXUS data</p>
 </dd>
 </dl>
 <p>Note: eventNumbers can only be used with a single series
-(“files_series” must be a string)</p>
+(“files_series�?must be a string)</p>
 </dd></dl>
 
 <dl class="py method">
@@ -969,13 +969,13 @@ It supports data with only one “detector” and validated with NEXUS data</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>traces</strong> (<em>list</em><em> or </em><em>ndarray</em><em> or </em><em>dict</em>) – Triggered traces to be processed.</p></li>
-<li><p><strong>fs</strong> (<em>float</em>) – sampling frequency.</p></li>
-<li><p><strong>trace_weight</strong> (<em>float</em>) – A number multiplied to the traces, usually used for unit convertion.</p></li>
-<li><p><strong>chan_names</strong> (<em>list</em>) – Channel names</p></li>
-<li><p><strong>window</strong> (<em>str</em><em> or </em><em>tuple</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) – Desired window to use for scipy.signal.periodogram</p></li>
-<li><p><strong>verbose</strong> (<em>boolean</em>) – Print datasize if True</p></li>
-<li><p><strong>detrend</strong> (<em>{&quot;linear&quot;</em><em>, </em><em>&quot;constant&quot;}</em>) – Specifies how to detrend each segment. This is an input for scipy.signal.periodogram</p></li>
+<li><p><strong>traces</strong> (<em>list</em><em> or </em><em>ndarray</em><em> or </em><em>dict</em>) �?Triggered traces to be processed.</p></li>
+<li><p><strong>fs</strong> (<em>float</em>) �?sampling frequency.</p></li>
+<li><p><strong>trace_weight</strong> (<em>float</em>) �?A number multiplied to the traces, usually used for unit convertion.</p></li>
+<li><p><strong>chan_names</strong> (<em>list</em>) �?Channel names</p></li>
+<li><p><strong>window</strong> (<em>str</em><em> or </em><em>tuple</em><em> or </em><em>array_like</em><em>, </em><em>optional</em>) �?Desired window to use for scipy.signal.periodogram</p></li>
+<li><p><strong>verbose</strong> (<em>boolean</em>) �?Print datasize if True</p></li>
+<li><p><strong>detrend</strong> (<em>{&quot;linear&quot;</em><em>, </em><em>&quot;constant&quot;}</em>) �?Specifies how to detrend each segment. This is an input for scipy.signal.periodogram</p></li>
 </ul>
 </dd>
 </dl>
@@ -1022,17 +1022,17 @@ Note: It’s actually Amplitude Spectrum Density(Unit: pA/sqrt(Hz)), but people 
 </dd>
 <dt>Fs: int</dt><dd><p>Sampling frequency.</p>
 </dd>
-<dt>method: “filter” or “convert”</dt><dd><dl class="simple">
-<dt>“filter”: [ERROR in calculation, need fix] A white noise is generated and using the psd as FIR filter.</dt><dd><p>can generate noise trace with arbiturary length.</p>
+<dt>method: “filter�?or “convert�?/dt><dd><dl class="simple">
+<dt>“filter�? [ERROR in calculation, need fix] A white noise is generated and using the psd as FIR filter.</dt><dd><p>can generate noise trace with arbiturary length.</p>
 </dd>
-<dt>“convert”: Pulling a sample using the psd as pdf directly. Can only generate</dt><dd><p>trace that has same length as psd.</p>
+<dt>“convert�? Pulling a sample using the psd as pdf directly. Can only generate</dt><dd><p>trace that has same length as psd.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>traces</strong> – The simulated noise traces</p>
+<dd class="field-odd"><p><strong>traces</strong> �?The simulated noise traces</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>2-d array</p>
@@ -1098,7 +1098,7 @@ Values: list, power at different frequencies. i.e. p(f)</p>
 <dt>chi2<span class="classifier">ndarray</span></dt><dd><p>An array of chi2, 1-D or 2-D. If dimension ==2, finding minimum across the whole matrix
 axis.</p>
 </dd>
-<dt>window<span class="classifier">None, int</span></dt><dd><p>“window” specify the region for minimization. Default is None, which means unlimited region.</p>
+<dt>window<span class="classifier">None, int</span></dt><dd><p>“window�?specify the region for minimization. Default is None, which means unlimited region.</p>
 </dd>
 <dt>mask<span class="classifier">None, boolean array</span></dt><dd><p>Additional boolean mask to constrain the region for minimization. It should have the same shape as chi2.
 Default is None, no cut applied.</p>
@@ -1108,7 +1108,7 @@ Default is None, no cut applied.</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>ind</strong> – The index of the minimum of <cite>chi2</cite> with the constraints of <cite>window</cite> and <cite>mask</cite>.</p>
+<dd class="field-odd"><p><strong>ind</strong> �?The index of the minimum of <cite>chi2</cite> with the constraints of <cite>window</cite> and <cite>mask</cite>.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>tuple, list</p>
@@ -1141,7 +1141,7 @@ Default is None, no cut applied.</p>
 See README.md in pycrp/processing for the derivation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>sigma</strong> – The amplitude resolution of the Optimal filter.
+<dd class="field-odd"><p><strong>sigma</strong> �?The amplitude resolution of the Optimal filter.
 unit is [uA], which depends on the unit of noise psd</p>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -1156,27 +1156,27 @@ unit is [uA], which depends on the unit of noise psd</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>S</strong> (<em>1d array</em><em>,</em>) – signal in time domain, [uA]</p></li>
-<li><p><strong>N</strong> (<em>1d array</em><em> or </em><em>None</em>) – noise PSD
+<li><p><strong>S</strong> (<em>1d array</em><em>,</em>) �?signal in time domain, [uA]</p></li>
+<li><p><strong>N</strong> (<em>1d array</em><em> or </em><em>None</em>) �?noise PSD
 If None, use the stored PSD of this instance [pA/rtHz]</p></li>
-<li><p><strong>T</strong> (<em>1d array</em><em> or </em><em>None</em>) – pulse shape template [Normalized to amplitude of 1]
+<li><p><strong>T</strong> (<em>1d array</em><em> or </em><em>None</em>) �?pulse shape template [Normalized to amplitude of 1]
 If None, use the stored pulse shape of this instance</p></li>
-<li><p><strong>fs</strong> (<em>float</em><em>, </em><em>sampling frequency</em>) – </p></li>
-<li><p><strong>delay</strong> (<em>int t1</em><em>, or </em><em>a pair of int</em><em> [</em><em>t1</em><em>,</em><em>t2</em><em>]</em><em>.</em>) – If -1, search whole trace
+<li><p><strong>fs</strong> (<em>float</em><em>, </em><em>sampling frequency</em>) �?</p></li>
+<li><p><strong>delay</strong> (<em>int t1</em><em>, or </em><em>a pair of int</em><em> [</em><em>t1</em><em>,</em><em>t2</em><em>]</em><em>.</em>) �?If -1, search whole trace
 If t1, the chi2 minimization is done within +/-t1 samples
 If [t1,t2],the chi2 minimization is done from -t1 to +t2 samples</p></li>
-<li><p><strong>LPF</strong> (<em>float</em><em> [</em><em>Hz</em><em>]</em><em>, or </em><em>None</em>) – cut-off frequency for chi2 evaluation. (No need to calcuate the bins again!)
+<li><p><strong>LPF</strong> (<em>float</em><em> [</em><em>Hz</em><em>]</em><em>, or </em><em>None</em>) �?cut-off frequency for chi2 evaluation. (No need to calcuate the bins again!)
 set to None to disable LPF</p></li>
-<li><p><strong>OFP_length</strong> (<em>int</em>) – if -1: DISABLE pile-up optimal filter
+<li><p><strong>OFP_length</strong> (<em>int</em>) �?if -1: DISABLE pile-up optimal filter
 if &gt;0: ENABLE pile-up optimal filter. this number set the window lenght of OFP</p></li>
-<li><p><strong>OFP_threshold</strong> (<em>float</em>) – the pulse amplitude threshold for OFP, to prevent finding minimum due to fluctuation
+<li><p><strong>OFP_threshold</strong> (<em>float</em>) �?the pulse amplitude threshold for OFP, to prevent finding minimum due to fluctuation
 Recommand to set at 7-sigma of baseline resolution</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><em>(OF0, OF, OFL, OFP)</em></p></li>
-<li><p><em>if return_all and OFP_length&gt;0 type(delay) is not list and delay!=0 and delay!=-1</em> – return (A0,Xr0), (A,Xr,t0), (A_lim,Xr_lim,t0_lim),(A1s,A2s,t1,t2,Xrp) (OF0, OF, OFL)</p></li>
+<li><p><em>if return_all and OFP_length&gt;0 type(delay) is not list and delay!=0 and delay!=-1</em> �?return (A0,Xr0), (A,Xr,t0), (A_lim,Xr_lim,t0_lim),(A1s,A2s,t1,t2,Xrp) (OF0, OF, OFL)</p></li>
 </ul>
 </p>
 </dd>
@@ -1208,7 +1208,7 @@ set to None to disable LPF</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>self.OF_coeff</strong> – The optimum filter coefficients</p>
+<dd class="field-odd"><p><strong>self.OF_coeff</strong> �?The optimum filter coefficients</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>float</p>
@@ -1231,7 +1231,7 @@ set to None to disable LPF</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>self.OF_coeff_OFP</strong> – The pile up optimum filter coefficients</p>
+<dd class="field-odd"><p><strong>self.OF_coeff_OFP</strong> �?The pile up optimum filter coefficients</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>float</p>
@@ -1260,7 +1260,7 @@ See README.md in pycrp/processing for the derivation</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>sigma</strong> – The time resolution of the optimum filter.</p>
+<dd class="field-odd"><p><strong>sigma</strong> �?The time resolution of the optimum filter.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>float</p>
@@ -1286,10 +1286,10 @@ See README.md in pycrp/processing for the derivation</p>
 </dd>
 <dt>trace: ndarray</dt><dd><p>The pulse to fit</p>
 </dd>
-<dt>template: {“2pole”,”3pole”,”4pole”}</dt><dd><p>The function of pulse shape template.
+<dt>template: {�?pole�?�?pole�?�?pole”}</dt><dd><p>The function of pulse shape template.
 2pole: 1 rise time and 1 fall time</p>
 </dd>
-<dt>baseline: {“flat”,”exp”}</dt><dd><p>The function of baseline shape</p>
+<dt>baseline: {“flat�?”exp”}</dt><dd><p>The function of baseline shape</p>
 </dd>
 <dt>ac_coupling: boolean</dt><dd><p>Whether DC is considered in the fit or not
 Default: True (AC coupling)</p>
@@ -1360,7 +1360,7 @@ Default: True (AC coupling)</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>Traces</strong> – The traces after filtering</p>
+<dd class="field-odd"><p><strong>Traces</strong> �?The traces after filtering</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>dict</p>
@@ -1378,7 +1378,7 @@ Default: True (AC coupling)</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>Traces</strong> – The traces after filtering</p>
+<dd class="field-odd"><p><strong>Traces</strong> �?The traces after filtering</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>dict</p>
@@ -1408,7 +1408,7 @@ Default: True (AC coupling)</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>A_t</strong> – The traces after filtering</p>
+<dd class="field-odd"><p><strong>A_t</strong> �?The traces after filtering</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>dict</p>
@@ -1563,7 +1563,7 @@ Update 2021/7/2: the interpolation is replaced with rolling by fft</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>mask</strong> – A mask base on the cut</p>
+<dd class="field-odd"><p><strong>mask</strong> �?A mask base on the cut</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>boolean array</p>
@@ -1582,8 +1582,8 @@ Update 2021/7/2: the interpolation is replaced with rolling by fft</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
-<li><p><strong>mask</strong> (<em>boolean array</em>) – combined mask</p></li>
-<li><p><em>—</em></p></li>
+<li><p><strong>mask</strong> (<em>boolean array</em>) �?combined mask</p></li>
+<li><p><em>�?/em></p></li>
 </ul>
 </p>
 </dd>
@@ -1611,12 +1611,12 @@ average, slope, skewness and range</p>
 </dd>
 <dt>ds: int</dt><dd><p>Downsampling factor.</p>
 </dd>
-<dt>use_filter: str</dt><dd><p>the filter applied on the traces before cut. Default is “gauss:20,0”.</p>
+<dt>use_filter: str</dt><dd><p>the filter applied on the traces before cut. Default is “gauss:20,0�?</p>
 </dd>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>traces</strong> – Events with pulses removed.</p>
+<dd class="field-odd"><p><strong>traces</strong> �?Events with pulses removed.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>dict of arrays</p>
@@ -1699,7 +1699,7 @@ if float (default): specify the percentage of trace that is considered baseline 
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
 <li><p><strong>mask</strong> (<em>dict of boolean</em>)</p></li>
-<li><p><em>—</em></p></li>
+<li><p><em>�?/em></p></li>
 </ul>
 </p>
 </dd>
@@ -1742,7 +1742,7 @@ if float (default): specify the percentage of trace that is considered baseline 
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
 <li><p><strong>mask</strong> (<em>dict of boolean</em>)</p></li>
-<li><p><em>—</em></p></li>
+<li><p><em>�?/em></p></li>
 </ul>
 </p>
 </dd>
@@ -1777,11 +1777,11 @@ if float (default): specify the percentage of trace that is considered baseline 
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>ds</strong> (<em>int</em>) – down-sampling factor, default = 4</p></li>
-<li><p><strong>use_filter</strong> (<em>boolean</em><em> or </em><em>str</em>) – False: no filtering
-“savgol:<cite>length</cite>,`order`”: use Savgol filter, <cite>length</cite> and <cite>order</cite> should be int
-“gauss:<cite>sigma</cite>,`order`”: use Gauss filter, <cite>sigma</cite> and <cite>order</cite> should be int
-default is “gauss:20,0”</p></li>
+<li><p><strong>ds</strong> (<em>int</em>) �?down-sampling factor, default = 4</p></li>
+<li><p><strong>use_filter</strong> (<em>boolean</em><em> or </em><em>str</em>) �?False: no filtering
+“savgol:<cite>length</cite>,`order`�? use Savgol filter, <cite>length</cite> and <cite>order</cite> should be int
+“gauss:<cite>sigma</cite>,`order`�? use Gauss filter, <cite>sigma</cite> and <cite>order</cite> should be int
+default is “gauss:20,0�?/p></li>
 </ul>
 </dd>
 </dl>
@@ -1810,8 +1810,8 @@ traces, trigger_result = tg.run_trigger()</p>
 <li><p>full filename</p></li>
 <li><p>series number, need to specify data_dir and data_type</p></li>
 <li><p>a string with wildcard</p></li>
-<li><p>a string with f-string format and with wildcard with “series” as a variable, and provide a list of series <cite>Series</cite>
-Note that it should be given as a normal string, without the initial f’’. for example, “/{series}/{series}_F*.mid.gz”</p></li>
+<li><p>a string with f-string format and with wildcard with “series�?as a variable, and provide a list of series <cite>Series</cite>
+Note that it should be given as a normal string, without the initial f’�? for example, �?{series}/{series}_F*.mid.gz�?/p></li>
 </ul>
 </dd>
 <dt>N_files: None, int, tuple or list</dt><dd><ul class="simple">
@@ -1822,7 +1822,7 @@ Note that it should be given as a normal string, without the initial f’’. fo
 </ul>
 </dd>
 </dl>
-<p>data_type: str, choose one from (“NEXUS”,”Animal”, “UMass”, “MIT”, “Argonne”,”RQ”)</p>
+<p>data_type: str, choose one from (“NEXUS�?”Animal�? “UMass�? “MIT�? “Argonne�?”RQ�?</p>
 <dl class="simple">
 <dt>trace_length: int</dt><dd><p>Length of the trace</p>
 </dd>
@@ -1836,8 +1836,8 @@ Note that it should be given as a normal string, without the initial f’’. fo
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul class="simple">
-<li><p><strong>traces</strong> (<em>array</em>) – Triggered raw traces</p></li>
-<li><p><strong>trigger_info</strong> (<em>dict</em>) – trigger information</p></li>
+<li><p><strong>traces</strong> (<em>array</em>) �?Triggered raw traces</p></li>
+<li><p><strong>trigger_info</strong> (<em>dict</em>) �?trigger information</p></li>
 </ul>
 </p>
 </dd>
@@ -1875,7 +1875,7 @@ Fals: reshaping the data</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>traces_return</strong> – Dictionary of random triggered traces</p>
+<dd class="field-odd"><p><strong>traces_return</strong> �?Dictionary of random triggered traces</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>dict</p>
@@ -2098,7 +2098,7 @@ Fause: return the post-event interval. The last element is forced to inf</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><ul>
-<li><p><strong>dts</strong> (<em>ndarray, length equal to list1</em>) –</p>
+<li><p><strong>dts</strong> (<em>ndarray, length equal to list1</em>) �?/p>
 <dl class="simple">
 <dt>If list2 is not provided:</dt><dd><ul class="simple">
 <li><p>closest interval for each event in list1. positive value the means the interval is before the current event.</p></li>
@@ -2110,7 +2110,7 @@ Fause: return the post-event interval. The last element is forced to inf</p>
 </dd>
 </dl>
 </li>
-<li><p><strong>inds2_coinc</strong> (<em>list of boolean</em>) –</p>
+<li><p><strong>inds2_coinc</strong> (<em>list of boolean</em>) �?/p>
 <dl class="simple">
 <dt>If list2 is not provided:</dt><dd><p>the sign of dts</p>
 </dd>
@@ -2138,8 +2138,8 @@ simple boxcar filter</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array_like</em>) – The signal to be downsampled, as an 1 dimensional array.</p></li>
-<li><p><strong>q</strong> (<em>int</em>) – The downsampling factor</p></li>
+<li><p><strong>x</strong> (<em>array_like</em>) �?The signal to be downsampled, as an 1 dimensional array.</p></li>
+<li><p><strong>q</strong> (<em>int</em>) �?The downsampling factor</p></li>
 </ul>
 </dd>
 </dl>
@@ -2158,7 +2158,7 @@ height: default to 1</p>
 <dt class="sig sig-object py" id="pycrp._utils.Utils.find_float">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycrp._utils.Utils.find_float" title="Permalink to this definition">¶</a></dt>
 <dd><p>Find all float numbers inside a string</p>
-<p>return_format: “float” or “str”</p>
+<p>return_format: “float�?or “str�?/p>
 </dd></dl>
 
 <dl class="py method">
@@ -2186,7 +2186,7 @@ height: default to 0.5 (half maximum)</p>
 <dt class="sig sig-object py" id="pycrp._utils.Utils.get_dt">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_dt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_which</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nearest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycrp._utils.Utils.get_dt" title="Permalink to this definition">¶</a></dt>
 <dd><p>calculate times2-times1</p>
-<p>use_which: “before”,”nearest”,”after”</p>
+<p>use_which: “before�?”nearest�?”after�?/p>
 </dd></dl>
 
 <dl class="py method">
@@ -2212,7 +2212,7 @@ height: default to 0.5 (half maximum)</p>
 </div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>file_list</strong> – a list of filenames</p>
+<dd class="field-odd"><p><strong>file_list</strong> �?a list of filenames</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>list of string</p>
@@ -2325,15 +2325,15 @@ shift: float</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> (<em>array_like</em>) – Input array.</p></li>
-<li><p><strong>shift</strong> (<em>int</em>) – The number of places by which elements are shifted.</p></li>
-<li><p><strong>axis</strong> (<em>int</em><em>, </em><em>optional</em>) – The axis along which elements are shifted.  By default, the array
+<li><p><strong>a</strong> (<em>array_like</em>) �?Input array.</p></li>
+<li><p><strong>shift</strong> (<em>int</em>) �?The number of places by which elements are shifted.</p></li>
+<li><p><strong>axis</strong> (<em>int</em><em>, </em><em>optional</em>) �?The axis along which elements are shifted.  By default, the array
 is flattened before shifting, after which the original
 shape is restored.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>res</strong> – Output array, with the same shape as <cite>a</cite>.</p>
+<dd class="field-even"><p><strong>res</strong> �?Output array, with the same shape as <cite>a</cite>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>ndarray</p>
@@ -2381,7 +2381,7 @@ shape is restored.</p></li>
 <dt>files: list of str</dt><dd><p>filenames to sort</p>
 </dd>
 </dl>
-<p>data_type: None, “NEXUS” or “Animal”</p>
+<p>data_type: None, “NEXUS�?or “Animal�?/p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>sorted filelist</p>
@@ -2420,7 +2420,7 @@ shape is restored.</p></li>
 <span class="sig-name descname"><span class="pre">adc_to_amp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NR6'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feedback_resistance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycrp._event.Event.adc_to_amp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts adc values into Amps.
 Settings: NR6 or NR7 to set the feedback resistance to 1.39e3 or 2.1e3 Ohm respectively.
-If feedback_resistance is specified, than it overrides the “setting”.</p>
+If feedback_resistance is specified, than it overrides the “setting�?</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2428,7 +2428,7 @@ If feedback_resistance is specified, than it overrides the “setting”.</p>
 <span class="sig-name descname"><span class="pre">adc_to_ua</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">adc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">setting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NR6'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feedback_resistance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycrp._event.Event.adc_to_ua" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts adc values into micro Amps.
 Settings: NR6 or NR7 to set the feedback resistance to 1.39e3 or 2.1e3 Ohm respectively.
-If feedback_resistance is specified, than it overrides the “setting”.</p>
+If feedback_resistance is specified, than it overrides the “setting�?</p>
 </dd></dl>
 
 <dl class="py method">
@@ -2443,9 +2443,9 @@ If feedback_resistance is specified, than it overrides the “setting”.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>series</strong> (<em>str</em>) – series number, e.g. 25201129_095900</p></li>
-<li><p><strong>indeces</strong> (<em>iterable</em>) – array of file indeces, as in the <cite>filename_idx</cite> RQ</p></li>
-<li><p><strong>raw_files_dir</strong> (<em>str</em>) – path to the raw files directory. Uses NR7 path by default</p></li>
+<li><p><strong>series</strong> (<em>str</em>) �?series number, e.g. 25201129_095900</p></li>
+<li><p><strong>indeces</strong> (<em>iterable</em>) �?array of file indeces, as in the <cite>filename_idx</cite> RQ</p></li>
+<li><p><strong>raw_files_dir</strong> (<em>str</em>) �?path to the raw files directory. Uses NR7 path by default</p></li>
 </ul>
 </dd>
 </dl>
@@ -2456,7 +2456,7 @@ If feedback_resistance is specified, than it overrides the “setting”.</p>
 <span class="sig-name descname"><span class="pre">get_raw_events_Animal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxNumEvents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_trig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_trig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rawdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/gpfs/fs1/home/z/zqhong/yongqi/SuperCDMS/AR74/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycrp._event.Event.get_raw_events_Animal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get raw data from RQs</p>
 <p>Inputs
-—
+�?
 data: RQs</p>
 <blockquote>
 <div><p>a dict with metadata</p>
@@ -2477,7 +2477,7 @@ data: RQs</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>traces</strong> – The dictionary with raw traces. Key: channel name. Values: raw traces.</p>
+<dd class="field-odd"><p><strong>traces</strong> �?The dictionary with raw traces. Key: channel name. Values: raw traces.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>dict</p>
@@ -2490,7 +2490,7 @@ data: RQs</p>
 <span class="sig-name descname"><span class="pre">get_raw_events_Argonne</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxNumEvents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_trig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_trig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">negative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rawdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/gpfs/fs1/home/z/zqhong/yongqi/Ricochet_data/'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycrp._event.Event.get_raw_events_Argonne" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get raw data from RQs</p>
 <p>Inputs
-—
+�?
 data: RQs</p>
 <blockquote>
 <div><p>a dict with metadata</p>
@@ -2513,7 +2513,7 @@ data: RQs</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>traces</strong> – The dictionary with raw traces. Key: channel name. Values: raw traces.</p>
+<dd class="field-odd"><p><strong>traces</strong> �?The dictionary with raw traces. Key: channel name. Values: raw traces.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>dict</p>
@@ -2537,37 +2537,37 @@ data: RQs</p>
 <dt class="sig sig-object py" id="pycrp._event.Event.get_raw_traces_Nexus">
 <span class="sig-name descname"><span class="pre">get_raw_traces_Nexus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filenames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_numbers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trigpts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['PAS1',</span> <span class="pre">'PFS1',</span> <span class="pre">'PDS1']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels_to_combine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combined_labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pretrig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">posttrig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3072</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zeros_out_of_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adc_conversion_setting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'NR6'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feedback_resistance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chs_in_total</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['PAS1',</span> <span class="pre">'PFS1']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subtrack_meanbase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combining_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycrp._event.Event.get_raw_traces_Nexus" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of 2d np.arrays with raw traces.
-labels and combined_labels are the keys for the dictionary (+’Total’ if ‘chs_in_total’ is not empty).
+labels and combined_labels are the keys for the dictionary (+’Total�?if ‘chs_in_total�?is not empty).
 If labels are not provided, chs keys are used for the output dictionary keys</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filenames</strong> (<em>1-d arrays</em><em> or </em><em>lists of the same length</em>) – filenames (full paths required), event numbers and trigger points of the required events.</p></li>
-<li><p><strong>event_numbers</strong> (<em>1-d arrays</em><em> or </em><em>lists of the same length</em>) – filenames (full paths required), event numbers and trigger points of the required events.</p></li>
-<li><p><strong>trigpts</strong> (<em>1-d arrays</em><em> or </em><em>lists of the same length</em>) – filenames (full paths required), event numbers and trigger points of the required events.</p></li>
-<li><p><strong>n</strong> (<em>int</em>) – number of traces to read.</p></li>
-<li><p><strong>chs</strong> (<em>list</em>) – channels to have in the output.</p></li>
-<li><p><strong>channels_to_combine</strong> (<em>list of lists</em>) – each entry is a list of channels to sum up into one channel</p></li>
-<li><p><strong>labels</strong> (<em>list</em>) – list of channel labels. Must be of the same length as chs. Used as the output dictionary keys
+<li><p><strong>filenames</strong> (<em>1-d arrays</em><em> or </em><em>lists of the same length</em>) �?filenames (full paths required), event numbers and trigger points of the required events.</p></li>
+<li><p><strong>event_numbers</strong> (<em>1-d arrays</em><em> or </em><em>lists of the same length</em>) �?filenames (full paths required), event numbers and trigger points of the required events.</p></li>
+<li><p><strong>trigpts</strong> (<em>1-d arrays</em><em> or </em><em>lists of the same length</em>) �?filenames (full paths required), event numbers and trigger points of the required events.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) �?number of traces to read.</p></li>
+<li><p><strong>chs</strong> (<em>list</em>) �?channels to have in the output.</p></li>
+<li><p><strong>channels_to_combine</strong> (<em>list of lists</em>) �?each entry is a list of channels to sum up into one channel</p></li>
+<li><p><strong>labels</strong> (<em>list</em>) �?list of channel labels. Must be of the same length as chs. Used as the output dictionary keys
 If empty, a list of channels is used as labels</p></li>
-<li><p><strong>combined_labels</strong> (<em>list</em>) – list of labels for the combined channels. Must be of the same length as channels_to_combine.
-If empty, channel names are concatenated with a plus sign. E.g.: “PES2 + PFS2”</p></li>
-<li><p><strong>pretrig</strong> (<em>int</em>) – number of bins to include in the output before and after the trigger point</p></li>
-<li><p><strong>posttrig</strong> (<em>int</em>) – number of bins to include in the output before and after the trigger point</p></li>
-<li><p><strong>zeros_out_of_range</strong> (<em>bool</em>) – if True, put zeros in place of values that go beyond raw trace</p></li>
-<li><p><strong>adc_conversion_setting</strong> (<em>string</em>) – use “NR6” or “NR7” to set the feedback resistance to 1.39e3 or 2.1e3 Ohm respectively for adc to Amp conversion</p></li>
-<li><p><strong>feedback_resistance</strong> (<em>float</em>) – feedback resistance for the adc to amp conversion. Overrides the “setting” argument if &gt;0</p></li>
-<li><p><strong>chs_in_total</strong> (<em>list</em>) – channels to add together to make a ‘Total’ channel in the output.
-If an empty list is provided, the ‘Total’ channel won’t be created in the output.
+<li><p><strong>combined_labels</strong> (<em>list</em>) �?list of labels for the combined channels. Must be of the same length as channels_to_combine.
+If empty, channel names are concatenated with a plus sign. E.g.: “PES2 + PFS2�?/p></li>
+<li><p><strong>pretrig</strong> (<em>int</em>) �?number of bins to include in the output before and after the trigger point</p></li>
+<li><p><strong>posttrig</strong> (<em>int</em>) �?number of bins to include in the output before and after the trigger point</p></li>
+<li><p><strong>zeros_out_of_range</strong> (<em>bool</em>) �?if True, put zeros in place of values that go beyond raw trace</p></li>
+<li><p><strong>adc_conversion_setting</strong> (<em>string</em>) �?use “NR6�?or “NR7�?to set the feedback resistance to 1.39e3 or 2.1e3 Ohm respectively for adc to Amp conversion</p></li>
+<li><p><strong>feedback_resistance</strong> (<em>float</em>) �?feedback resistance for the adc to amp conversion. Overrides the “setting�?argument if &gt;0</p></li>
+<li><p><strong>chs_in_total</strong> (<em>list</em>) �?channels to add together to make a ‘Total�?channel in the output.
+If an empty list is provided, the ‘Total�?channel won’t be created in the output.
 Deprecated! Kept for backward compatibility. Use channels_to_combine instead!</p></li>
-<li><p><strong>subtract_meanbase</strong> (<em>bool</em>) – if true, subtracts the mean value of the 90% of the pretrig trace region.
+<li><p><strong>subtract_meanbase</strong> (<em>bool</em>) �?if true, subtracts the mean value of the 90% of the pretrig trace region.
 For example, if the pretrig=1000, trace = trace - np.mean(trace[:900])</p></li>
-<li><p><strong>combining_weights</strong> (<em>list of lists of strings</em>) – weights to use when summing up the channels</p></li>
+<li><p><strong>combining_weights</strong> (<em>list of lists of strings</em>) �?weights to use when summing up the channels</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>traces</strong> – Dictionary of 2d np.arrays with raw traces.
-Labels in ‘labels’ argument are the keys for the dictionary.</p>
+<dd class="field-even"><p><strong>traces</strong> �?Dictionary of 2d np.arrays with raw traces.
+Labels in ‘labels�?argument are the keys for the dictionary.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict of 2-d arrays</p>
@@ -2731,10 +2731,10 @@ and each row is a 1-d numpy array with data in unit of uA</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>f</strong> (<em>string</em>) – File name of the Raw hdf5 data</p>
+<dd class="field-odd"><p><strong>f</strong> (<em>string</em>) �?File name of the Raw hdf5 data</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>res</strong> – Parsed data</p>
+<dd class="field-even"><p><strong>res</strong> �?Parsed data</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dictionary</p>
@@ -2753,11 +2753,11 @@ and each row is a 1-d numpy array with data in unit of uA</p>
 <span class="sig-name descname"><span class="pre">get_raw_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxNumEvents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_trig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_trig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_zeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rawdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/gpfs/slac/staas/fs1/g/supercdms/tf/northwestern/AnimalData/AR68dm/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycrp.io_user.io_Animal.IO_file.get_raw_events" title="Permalink to this definition">¶</a></dt>
 <dd><p>(Animal data only) This function fetches events with information from RQs</p>
 <p>INPUT:
-—</p>
+�?/p>
 <blockquote>
 <div><dl class="simple">
 <dt>data: dict</dt><dd><p>A dictionary that has at least the following information:
-“SeriesNumber”, “filename_idx”, “trig_loc”</p>
+“SeriesNumber�? “filename_idx�? “trig_loc�?/p>
 </dd>
 <dt>mask: boolean list</dt><dd><p>Event selection mask</p>
 </dd>
@@ -2769,7 +2769,7 @@ Each event may have multiple triggers/traces.</p>
 </dd>
 <dt>pad_zeros: boolean or float</dt><dd><p>Whether to add zeros if the required trace length is longer than the existing data</p>
 </dd>
-<dt>channels: None, list</dt><dd><p>The channels to return. example: [‘PCS1’, ‘PDS1’, ‘PES1’, ‘PFS1’, ‘PES2’, ‘PFS2’]</p>
+<dt>channels: None, list</dt><dd><p>The channels to return. example: [‘PCS1�? ‘PDS1�? ‘PES1�? ‘PFS1�? ‘PES2�? ‘PFS2’]</p>
 </dd>
 <dt>rawdir:</dt><dd><p>The location of the directory containing the unprocessed data for series.</p>
 </dd>
@@ -2791,7 +2791,7 @@ Each event may have multiple triggers/traces.</p>
 <dd><p>Return estimated number of chunks</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>None</strong> – </p>
+<dd class="field-odd"><p><strong>None</strong> �?</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>For block_traces==-1, it’s usually nfiles
@@ -2945,7 +2945,7 @@ Return None if done</p>
 <dd><p>Return estimated number of chunks</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>None</strong> – </p>
+<dd class="field-odd"><p><strong>None</strong> �?</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>For block_traces==-1, it’s usually nfiles
@@ -2964,16 +2964,16 @@ For block_traces &gt; 0, it’s nfiles x ntraces_per_file / block_traces</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>metadata</strong> (<em>dictionary</em>) – Dictionary of metadata</p></li>
-<li><p><strong>trigger_result</strong> (<em>dictionary</em>) – Triggered resutls, with events
+<li><p><strong>metadata</strong> (<em>dictionary</em>) �?Dictionary of metadata</p></li>
+<li><p><strong>trigger_result</strong> (<em>dictionary</em>) �?Triggered resutls, with events
 Will add metadata to this dictionary</p></li>
-<li><p><strong>trigger_points</strong> (<em>array</em>) – An array of trigger points</p></li>
-<li><p><strong>i_trace</strong> (<em>integer</em>) – The index of traces
+<li><p><strong>trigger_points</strong> (<em>array</em>) �?An array of trigger points</p></li>
+<li><p><strong>i_trace</strong> (<em>integer</em>) �?The index of traces
 Used to calculate the timestamp
-if i_trace == 0, will initialize the ‘SeriesNumber’ and ‘timestamp’
+if i_trace == 0, will initialize the ‘SeriesNumber�?and ‘timestamp�?
 keys in trigger_result</p></li>
-<li><p><strong>Fs</strong> (<em>integer</em>) – Sampling frequency</p></li>
-<li><p><strong>**kwargs</strong> (<em>stuff</em>) – To be compatible if more keys will be added</p></li>
+<li><p><strong>Fs</strong> (<em>integer</em>) �?Sampling frequency</p></li>
+<li><p><strong>**kwargs</strong> (<em>stuff</em>) �?To be compatible if more keys will be added</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -3184,7 +3184,7 @@ save it in idx row of res[‘CHx’]</p>
 <dd><p>Fetch metadata and populate them into self.metadata</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>None</strong> – </p>
+<dd class="field-odd"><p><strong>None</strong> �?</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>None</p>
@@ -3198,7 +3198,7 @@ save it in idx row of res[‘CHx’]</p>
 <dd><p>Return estimated number of chunks</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>None</strong> – </p>
+<dd class="field-odd"><p><strong>None</strong> �?</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>For block_traces==-1, it’s usually nfiles
@@ -3358,7 +3358,7 @@ Traces are already centerd at 0 and flipped.</p>
 <dd><p>Return estimated number of chunks</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>None</strong> – </p>
+<dd class="field-odd"><p><strong>None</strong> �?</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>For block_traces==-1, it’s usually nfiles
@@ -3408,11 +3408,11 @@ indexed from nextfilefile and itrace</p>
 <span class="sig-prename descclassname"><span class="pre">pycrp.io_user.io_NEXUS.</span></span><span class="sig-name descname"><span class="pre">get_raw_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxNumEvents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_trig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_trig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_zeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rawdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/gpfs/slac/staas/fs1/g/supercdms/tf/nexus/midasdata/NEXUS/R7/Raw/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycrp.io_user.io_NEXUS.get_raw_events" title="Permalink to this definition">¶</a></dt>
 <dd><p>(MIDAS data only) This function fetches events with information from RQs</p>
 <p>INPUT:
-—</p>
+�?/p>
 <blockquote>
 <div><dl class="simple">
 <dt>data: dict</dt><dd><p>A dictionary that has at least the following information:
-“SeriesNumber”, “EventNumber”, “trig_loc”</p>
+“SeriesNumber�? “EventNumber�? “trig_loc�?/p>
 </dd>
 <dt>mask: boolean list</dt><dd><p>Event selection mask</p>
 </dd>
@@ -3424,7 +3424,7 @@ Each event may have multiple triggers/traces.</p>
 </dd>
 <dt>pad_zeros: boolean</dt><dd><p>Whether to add zeros if the required trace length is longer than the existing data</p>
 </dd>
-<dt>channels: None, list</dt><dd><p>The channels to return. example: [‘PCS1’, ‘PDS1’, ‘PES1’, ‘PFS1’, ‘PES2’, ‘PFS2’]</p>
+<dt>channels: None, list</dt><dd><p>The channels to return. example: [‘PCS1�? ‘PDS1�? ‘PES1�? ‘PFS1�? ‘PES2�? ‘PFS2’]</p>
 </dd>
 <dt>rawdir:</dt><dd><p>The location of the directory containing the unprocessed data for series.</p>
 </dd>
@@ -3445,18 +3445,18 @@ Each event may have multiple triggers/traces.</p>
 <span class="sig-prename descclassname"><span class="pre">pycrp.io_user.io_NEXUS.</span></span><span class="sig-name descname"><span class="pre">get_raw_events_singleseries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxNumEvents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_trig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_trig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4096</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_zeros</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_raw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fast_reader</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rawdir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/gpfs/slac/staas/fs1/g/supercdms/tf/nexus/midasdata/NEXUS/R7/Raw/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycrp.io_user.io_NEXUS.get_raw_events_singleseries" title="Permalink to this definition">¶</a></dt>
 <dd><p>(MIDAS data only) This function returns a dictionary of traces from a single series
 INPUT:
-—</p>
+�?/p>
 <blockquote>
 <div><dl class="simple">
 <dt>data: dict</dt><dd><p>A dictionary that has at least the following information:
-“SeriesNumber”, “EventNumber”, “trig_loc”</p>
+“SeriesNumber�? “EventNumber�? “trig_loc�?/p>
 </dd>
 <dt>mask: boolean list</dt><dd><p>Event selection mask</p>
 </dd>
 <dt>maxNumEvents: int</dt><dd><p>The maximum number of DCRC events to be loaded.
 Each event may have multiple triggers/traces.</p>
 </dd>
-<dt>channels: None, list</dt><dd><p>The channels to return. example: [‘PCS1’, ‘PDS1’, ‘PES1’, ‘PFS1’, ‘PES2’, ‘PFS2’]</p>
+<dt>channels: None, list</dt><dd><p>The channels to return. example: [‘PCS1�? ‘PDS1�? ‘PES1�? ‘PFS1�? ‘PES2�? ‘PFS2’]</p>
 </dd>
 <dt>pre_trig = 4096,post_trig = 4096</dt><dd><p>Trace length</p>
 </dd>
@@ -3615,16 +3615,16 @@ Return None if done</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="pycrp.io_user.io_UMass.IO_file.__get_ith_trace">
 <span class="sig-name descname"><span class="pre">__get_ith_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">res</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pycrp.io_user.io_UMass.IO_file.__get_ith_trace" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a trace with index “i” from file “f”
+<dd><p>Get a trace with index “i�?from file “f�?
 and append it to dictionary res.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f</strong> (<em>dictionary-like</em>) – Raw data from hdf5 files loaded with
+<li><p><strong>f</strong> (<em>dictionary-like</em>) �?Raw data from hdf5 files loaded with
 f = h5py.File(filename)</p></li>
-<li><p><strong>res</strong> (<em>dictionary</em>) – Parsed data</p></li>
-<li><p><strong>i</strong> (<em>string</em>) – Index of traces in raw data</p></li>
-<li><p><strong>idx</strong> (<em>integer</em>) – Index number of trace in final numpy array</p></li>
+<li><p><strong>res</strong> (<em>dictionary</em>) �?Parsed data</p></li>
+<li><p><strong>i</strong> (<em>string</em>) �?Index of traces in raw data</p></li>
+<li><p><strong>idx</strong> (<em>integer</em>) �?Index number of trace in final numpy array</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -3654,10 +3654,10 @@ and each row is a 1-d numpy array with data in unit of uA</p>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>f</strong> (<em>string</em>) – File name of the Raw hdf5 data</p>
+<dd class="field-odd"><p><strong>f</strong> (<em>string</em>) �?File name of the Raw hdf5 data</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>res</strong> – Parsed data</p>
+<dd class="field-even"><p><strong>res</strong> �?Parsed data</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dictionary</p>
@@ -3677,7 +3677,7 @@ and each row is a 1-d numpy array with data in unit of uA</p>
 <dd><p>Return estimated number of chunks</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>None</strong> – </p>
+<dd class="field-odd"><p><strong>None</strong> �?</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>For block_traces==-1, it’s usually nfiles
@@ -3696,16 +3696,16 @@ For block_traces &gt; 0, it’s nfiles x ntraces_per_file / block_traces</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>metadata</strong> (<em>dictionary</em>) – Dictionary of metadata</p></li>
-<li><p><strong>trigger_result</strong> (<em>dictionary</em>) – Triggered resutls, with events
+<li><p><strong>metadata</strong> (<em>dictionary</em>) �?Dictionary of metadata</p></li>
+<li><p><strong>trigger_result</strong> (<em>dictionary</em>) �?Triggered resutls, with events
 Will add metadata to this dictionary</p></li>
-<li><p><strong>trigger_points</strong> (<em>array</em>) – An array of trigger points</p></li>
-<li><p><strong>i_trace</strong> (<em>integer</em>) – The index of traces
+<li><p><strong>trigger_points</strong> (<em>array</em>) �?An array of trigger points</p></li>
+<li><p><strong>i_trace</strong> (<em>integer</em>) �?The index of traces
 Used to calculate the timestamp
-if i_trace == 0, will initialize the ‘SeriesNumber’ and ‘timestamp’
+if i_trace == 0, will initialize the ‘SeriesNumber�?and ‘timestamp�?
 keys in trigger_result</p></li>
-<li><p><strong>Fs</strong> (<em>integer</em>) – Sampling frequency</p></li>
-<li><p><strong>**kwargs</strong> (<em>stuff</em>) – To be compatible if more keys will be added</p></li>
+<li><p><strong>Fs</strong> (<em>integer</em>) �?Sampling frequency</p></li>
+<li><p><strong>**kwargs</strong> (<em>stuff</em>) �?To be compatible if more keys will be added</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
